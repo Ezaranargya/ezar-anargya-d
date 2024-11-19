@@ -1,0 +1,82 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Perbaiki 'Arrial' ke 'Arial' */
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "navbar navbar navbar"
+        "header header header"
+        "sidebar content content"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 1fr; /* Perbaiki lfr ke 1fr */
+    grid-template-rows: auto auto 1fr auto; /* Perbaiki lfr ke 1fr */
+    min-height: 100vh;
+    gap: 10px;
+    padding: 10px;
+}
+
+.navbar {
+    grid-area: navbar; /* Perbaiki gwrid-area ke grid-area */
+    background-color: blue ;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.header {
+    grid-area: header;
+    background-color: greenyellow;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-right: 1px solid #ccc; 
+}
+
+.content {
+    grid-area: content;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: gray;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "navbar"
+            "header"
+            "content"
+            "sidebar"
+            "footer";
+        grid-template-columns: 1fr; /* Perbaiki lfr ke 1fr */
+        grid-template-rows: auto auto 1fr auto auto;
+    }
+    
+    .sidebar {
+        /* Di grid layout, urutan sudah ditentukan oleh grid-template-areas, tidak perlu order */
+    }
+}
